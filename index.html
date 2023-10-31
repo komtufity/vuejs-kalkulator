@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+</head>
+<body>
+    <div id="kalkulator">
+        <input v-model="var1" placeholder="Var1">
+        <input v-model="var2" placeholder="Var2"><br>
+        <button @click="count=parseFloat(var1)+parseFloat(var2)">+</button>
+        <button @click="count=parseFloat(var1)-parseFloat(var2)">-</button>
+        <button @click="count=parseFloat(var1)*parseFloat(var2)">*</button>
+        <button @click="count=parseFloat(var1)/parseFloat(var2)">/</button><br>
+        {{count}}
+    </div><br>
+
+    <div id="bgchange">        
+        <li class="change" @click="handleClick1" :style="{backgroundColor: active1 ? 'white' : 'cyan'}">Test - 1</li><br>
+        <li class="change" @click="handleClick2" :style="{backgroundColor: active2 ? 'white' : 'cyan'}">Test - 2</li><br>
+        <li class="change" @click="handleClick3" :style="{backgroundColor: active3 ? 'white' : 'cyan'}">Test - 3</li><br>
+        <li class="change" @click="handleClick4" :style="{backgroundColor: active4 ? 'white' : 'cyan'}">Test - 4</li>
+    </div>
+    
+    <script type="module">
+        import { createApp } from 'vue'
+        import MyComponent from './script-kalkulator.js'
+      
+        createApp(MyComponent).mount('#kalkulator')
+    </script>
+
+    <script type="module">
+        import { createApp } from 'vue'
+        import MyComponent from './script-bgcolor.js'
+    
+        createApp(MyComponent).mount('#bgchange')
+    </script>
+</body>
+</html>
